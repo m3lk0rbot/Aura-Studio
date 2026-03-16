@@ -1,0 +1,5 @@
+{
+  "name": "Aura Studio",
+  "description": "A multimodal social media agent that generates captions, hashtags, and visual assets in a single fluid stream.",
+  "requestFramePermissions": []
+}
