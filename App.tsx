@@ -400,21 +400,33 @@ const App: React.FC = () => {
           const campaignRef = doc(collection(db, 'campaigns'));
           
           // Use base64 images directly
-          const imageUrls = result.images.map((img) => ({
-              url: img.url,
-              description: img.description
+          const imageUrls = (result.images || []).map((img) => ({
+              url: img.url || '',
+              description: img.description || ''
           }));
 
-          // Use base64 audio directly
-          const postsWithUrls = result.posts.map((post) => ({
-              ...post,
-              audioUrl: post.audioUrl
-          }));
+          // Use base64 audio directly, ensuring no undefined values
+          const postsWithUrls = (result.posts || []).map((post) => {
+              // Create a clean object without undefined values
+              const cleanPost: any = {
+                  content: post.content || '',
+                  platform: post.platform || '',
+                  style: post.style || '',
+                  audioUrl: post.audioUrl || ''
+              };
+              
+              // Add optional fields only if they are defined
+              if ('imageUrl' in post && post.imageUrl !== undefined) cleanPost.imageUrl = post.imageUrl;
+              if ('visualDescription' in post && post.visualDescription !== undefined) cleanPost.visualDescription = post.visualDescription;
+              if ('id' in post && post.id !== undefined) cleanPost.id = post.id;
+              
+              return cleanPost;
+          });
 
           await setDoc(campaignRef, {
             userId: user.uid,
-            summary: result.summary,
-            keywords: result.keywords,
+            summary: result.summary || '',
+            keywords: result.keywords || [],
             images: imageUrls,
             posts: postsWithUrls,
             createdAt: new Date().toISOString()
@@ -423,7 +435,7 @@ const App: React.FC = () => {
           // 2. Save sourceText in a separate document
           await setDoc(doc(db, 'campaign_sources', campaignRef.id), {
             userId: user.uid,
-            sourceText: sourceText
+            sourceText: sourceText || ''
           });
 
           // 2. Also save individual posts to archives

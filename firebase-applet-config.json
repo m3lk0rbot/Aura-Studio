@@ -1,10 +1,10 @@
 {
-  "projectId": "",
-  "appId": "",
-  "apiKey": "",
-  "authDomain": "",
-  "firestoreDatabaseId": "",
-  "storageBucket": "",
-  "messagingSenderId": "",
+  "projectId": "moral-479922",
+  "appId": "1:880434878698:web:1d2bb09311f28960349f93",
+  "apiKey": "AIzaSyDOHzkSkE_gL09pJsIlA_QR21kpeu3Y7Ss",
+  "authDomain": "moral-479922.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-a934014b-e7d4-47a0-a03f-4cc830906e46",
+  "storageBucket": "moral-479922.firebasestorage.app",
+  "messagingSenderId": "880434878698",
   "measurementId": ""
 }

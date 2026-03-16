@@ -2,7 +2,7 @@
 
 Aura Studio is a local-first, AI-powered social media post generator designed to help creators, marketers, and businesses transform long-form text into engaging, multimodal social media campaigns across multiple platforms.
 
-## 🚀 Overview
+## 🚀 Overview 
 
 The application leverages the **Gemini API** to analyze source text and generate platform-specific posts. It features a sleek, dark-themed interface built with **React 19** and **Tailwind CSS**, prioritizing speed and local data persistence. Aura Studio fulfills the Gemini Live Agent Challenge requirements by generating interleaved multimodal output (Caption + Image + Audio + Hashtags).
 
